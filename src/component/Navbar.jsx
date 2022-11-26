@@ -13,7 +13,7 @@ function NavbarSidebar() {
         </div>
       </div>
       <div className="fixed w-[200px] h-[110px]  text-white ml-[15%] text-2xl flex justify-center items-center">
-        <p className="font-bold ml-[-170px]">{page === '/' ? 'Daftar Tamu' : 'Input Tamu'}</p>
+        <p className="font-bold ml-[-170px]">{page === '/' ? '' : page === '/admin' ? '' : page === '/home' ? '' : page === 'dashboard' ? 'Daftar Tamu' : 'Input Tamu'}</p>
       </div>
     </div>
   );
