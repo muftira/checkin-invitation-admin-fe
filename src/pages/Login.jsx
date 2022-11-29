@@ -13,7 +13,7 @@ function Login() {
     <div className="w-screen h-[calc(100vh-64px)] flex justify-center items-center">
       <div className="h-[300px] sm:w-[400px]  w-[300px] bg-bege-two flex flex-col justify-center  border-2 border-neutral-300 shadow-2xl rounded-2xl p-6">
         <p className="sm:w-[400px] flex justify-center font-bold text-xl sm:ml-[-24px] ml-0">
-          ADMIN TAMU UNDANGAN
+          ADMIN E-GUEST BOOK
         </p>
         <form className='flex flex-col items-start'>
           <p className="text-sm mb-1 mt-4">Username</p>

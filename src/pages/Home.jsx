@@ -1,5 +1,8 @@
 import React from "react";
 import NavbarClient from "../component/NavbarClient";
+import { BsHourglassSplit} from "react-icons/bs";
+import { MdVerified } from "react-icons/md";
+import { CgDetailsMore } from "react-icons/cg";
 
 function Home() {
   return (
@@ -9,7 +12,10 @@ function Home() {
       <div className="lg:flex lg:flex-col justify-center items-center hidden">
         <p className="font-bold text-2xl mb-4">Detail Tamu</p>
         <div className="flex justify-center items-center space-x-4 mb-6"> 
-          <div className="w-[600px] h-[150px]  bg-bege-two flex justify-center items-center rounded-lg shadow-black/40 shadow-lg">
+          <div className="w-[600px] h-[160px]  bg-status-one flex justify-center items-center rounded-lg shadow-black/40 shadow-lg relative">
+          <div className='w-8 h-8 rounded-md bg-bege-two absolute left-5 top-[-20px] shadow-black/40 shadow-md text-icon flex justify-center items-center text-[20px]'>
+          <CgDetailsMore/>
+          </div>
             <div className="w-full flex flex-col items-start justify-center p-4 space-y-2">
               <div className="space-y-2 text-left">
                 <p>Nama Tamu : </p>
@@ -27,12 +33,18 @@ function Home() {
               </div>
             </div>
           </div>
-            <div className="w-[150px] h-[150px] bg-isArrived rounded-lg relative p-4 shadow-black/40 shadow-lg">
-              <p>Total Kedatangan</p>
+          <div className="w-[150px] h-[160px] text-center bg-notArrived rounded-lg relative p-4 shadow-black/40 shadow-lg">
+            <div className='w-8 h-8 rounded-md bg-bege-two absolute left-5 top-[-20px] shadow-black/40 shadow-md text-icon flex justify-center items-center text-[20px]'>
+            <BsHourglassSplit />
+            </div>
+              <p>Total Belum Datang</p>
               <p className="absolute top-[40%] left-[40%] text-6xl font-bold">0</p>
             </div>
-            <div className="w-[150px] h-[150px] bg-notArrived rounded-lg relative p-4 shadow-black/40 shadow-lg">
-              <p>Total Belum Datang</p>
+            <div className="w-[150px] h-[160px] text-center bg-isArrived rounded-lg relative p-4 shadow-black/40 shadow-lg">
+            <div className='w-8 h-8 rounded-md bg-bege-two absolute left-5 top-[-20px] shadow-black/40 shadow-md text-icon flex justify-center items-center text-[20px]'>
+            <MdVerified />
+            </div>
+              <p>Total Kedatangan</p>
               <p className="absolute top-[40%] left-[40%] text-6xl font-bold">0</p>
             </div>
         </div>
