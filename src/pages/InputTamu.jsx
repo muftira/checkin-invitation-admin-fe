@@ -63,7 +63,7 @@ function KegiatanHarian() {
           <div className="w-full flex justify-center">
             <button
               onClick={(e) => addData(e, name, address)}
-              className="w-[200px] h-9 bg-[#1C1C1C] rounded-md mt-6 text-sm text-white shadow-black/40 shadow-lg font-bold active:bg-bege/80"
+              className="w-[200px] h-9 bg-[#1C1C1C] rounded-md mt-6 text-sm text-white shadow-black/40 shadow-lg font-bold active:bg-[#1C1C1C]/40"
             >
               Tambah Tamu
             </button>

@@ -174,7 +174,7 @@ function Dashboard() {
             <div className="w-20 h-8">
               {dataFilter ? <ClearFilter getApi={getApi} setisCheckBox={setisCheckBox}/> : <button
                 onClick={() => setisCheckBox(!isCheckBox)}
-                className="w-full h-full bg-[#1C1C1C] font-bold text-white shadow-black/40 shadow-md rounded-md flex justify-center items-center"
+                className="w-full h-full bg-[#1C1C1C] font-bold text-white shadow-black/40 shadow-md rounded-md flex justify-center items-center active:bg-[#1C1C1C]/40"
               >
                 <FiFilter />
                 &ensp;Filter
