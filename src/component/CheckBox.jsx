@@ -63,7 +63,7 @@ function CheckBox({rowData, setRowData, isCheckBox, setisCheckBox, getApi}) {
         </div>
       </div>
       <div className="w-full flex justify-center pt-3">
-        <button onClick={(e) => getFilter(e)} className="w-20 h10 bg-bege border border-button rounded-md flex justify-center p-[2px] text-white font-bold">
+        <button onClick={(e) => getFilter(e)} className="w-20 h10 bg-[#1C1C1C] border border-button rounded-md flex justify-center p-[2px] text-white font-bold">
           Submit
         </button>
       </div>
