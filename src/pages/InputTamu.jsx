@@ -1,15 +1,52 @@
-import React, { useState } from "react";
-import { postData } from "../utils/axios";
+import React, { useState, useEffect } from "react";
+import { postData, updateData } from "../utils/axios";
 import swal from "sweetalert";
+import { useNavigate } from "react-router-dom";
 
 function KegiatanHarian() {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
+  const dataFiltered = JSON.parse(localStorage.getItem('data')) 
+  const navigate = useNavigate()
+  
+  
+  
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'))
+
+    if (user) {
+      if(dataFiltered){ 
+        setName(dataFiltered.name)
+        setAddress(dataFiltered.address)
+        }
+    }else{
+      navigate('/admin')
+    }
+    
+  }, [])
+  
 
   const addData = (e, name, address) => {
     e.preventDefault();
     if (name && address) {
-      return postData(name, address)
+      if (dataFiltered) {
+        updateData(dataFiltered._id, name, address)
+        .then((res) => {
+          swal({
+            title: "Berhasil diubah!",
+            icon: "success",
+            button: "Tutup !",
+          });
+          setName("");
+          setAddress("");
+          localStorage.removeItem("data");
+          navigate('/dashboard')
+          console.log(res);
+        })
+        .catch((err) => console.log("GAGAL =>", err))
+      }else{
+        postData(name, address)
         .then((res) => {
           swal({
             title: "Berhasil ditambahkan!",
@@ -24,6 +61,7 @@ function KegiatanHarian() {
         .catch((err) => {
           console.log("GAGAL =>", err);
         });
+      }
     } else {
       return swal({
         title: "Lengkapi Data !",
@@ -32,6 +70,15 @@ function KegiatanHarian() {
       });
     }
   };
+
+  function handleClear(e){
+    localStorage.removeItem('data')
+    setName('')
+    setAddress('')
+    navigate('/dashboard')
+  }
+
+  
 
   return (
     <div className="w-[calc(100vw-240px)] bg-red  flex flex-col pr-7 mb-10">
@@ -61,12 +108,23 @@ function KegiatanHarian() {
           </div>
 
           <div className="w-full flex justify-center">
+            {dataFiltered ? <div className="space-x-4"><button
+              onClick={(e) => handleClear(e)}
+              className="w-[200px] h-9 bg-icon rounded-md mt-6 text-sm text-white shadow-black/40 shadow-lg font-bold active:bg-[#1C1C1C]/40"
+            >
+              Cancel
+            </button>
             <button
               onClick={(e) => addData(e, name, address)}
               className="w-[200px] h-9 bg-[#1C1C1C] rounded-md mt-6 text-sm text-white shadow-black/40 shadow-lg font-bold active:bg-[#1C1C1C]/40"
             >
+              Update Tamu
+            </button></div> : <button
+              onClick={(e) => addData(e, name, address)}
+              className="w-[200px] h-9 bg-[#1C1C1C] rounded-md mt-6 text-sm text-white shadow-black/40 shadow-lg font-bold active:bg-[#1C1C1C]/40"
+            >
               Tambah Tamu
-            </button>
+            </button>}
           </div>
         </form>
       </div>

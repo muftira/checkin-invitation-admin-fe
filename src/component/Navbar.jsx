@@ -5,6 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 function NavbarSidebar() {
   const location = useLocation();
   const page = location.pathname;
+  const dataFiltered = localStorage.getItem('data')
   return (
     <div>
       <div className="fixed w-full h-screen ">
@@ -22,6 +23,11 @@ function NavbarSidebar() {
             <div className="text-white w-full flex justify-center items-center">
               <GiHamburgerMenu className="mt-1 lg:hidden inline" />
               &ensp;Daftar Tamu
+            </div>
+          ) : dataFiltered ? (
+            <div className="text-white w-full  flex justify-center items-center">
+              <GiHamburgerMenu className="mt-1 lg:hidden inline"  />
+              &ensp;Update Tamu
             </div>
           ) : (
             <div className="text-white w-full  flex justify-center items-center">

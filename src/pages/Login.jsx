@@ -1,12 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
+import { user } from "../data/user";
 
 function Login() {
     const navigate = useNavigate()
-
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [wrong, setWrong] = useState('')
     const getLogin = (e) => {
         e.preventDefault()
-        navigate('/dashboard')
+        if(user.username === username && user.password === password){
+          localStorage.setItem('user', JSON.stringify(user))
+          navigate('/dashboard')
+        }else{
+          setWrong('Username atau Password salah!')
+        }
+        
     }
 
   return (
@@ -20,21 +29,23 @@ function Login() {
           <input
             className="ring-2 ring-neutral-400 rounded-md px-1 py-1 sm:w-[350px] w-[250px] text-sm"
             type="text"
-            onChange=''
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
             required
           />
           <p className="text-sm mb-1 mt-4 ">Password</p>
           <input
             className="ring-2 ring-neutral-400 rounded-md px-1 py-1 sm:w-[350px] w-[250px] text-sm"
             type="password"
-            onChange=''
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
             required
           />
           <button onClick={(e) => getLogin(e)} className="sm:w-[350px] w-[250px] h-9 bg-bege rounded-md mt-6 text-sm text-white shadow-black/40 shadow-lg font-bold active:bg-bege/80">
             Log in
           </button>
         </form>
-        {/* {auth.currentUser?.email ? null : <p className="text-red-600 w-full flex justify-center items-center">{errorCredentials}</p>} */}
+        <p className="text-red-600 w-full flex justify-center items-center mt-2">{wrong}</p>
         <p className="text-sm sm:w-[400px] w-[300px] flex justify-center ml-[-24px] mt-4">
         </p>
       </div>

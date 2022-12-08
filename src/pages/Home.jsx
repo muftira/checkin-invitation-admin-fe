@@ -1,10 +1,26 @@
-import React from "react";
+import React,{ useState, useEffect } from "react";
 import NavbarClient from "../component/NavbarClient";
 import { BsHourglassSplit} from "react-icons/bs";
 import { MdVerified } from "react-icons/md";
 import { CgDetailsMore } from "react-icons/cg";
+import { getData } from "../utils/axios";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const [data, setData] = useState([])
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const userClient = JSON.parse(localStorage.getItem('userClient'))
+    if (userClient) {
+      getData()
+      .then((res) => setData(res))
+      .catch((err) => console.log('GAGAL =>', err))
+    }else{
+      navigate('/')
+    }
+  }, [])
+  
   return (
     <div className="w-full h-screen bg-bege flex flex-col justify-start items-center">
       <NavbarClient />

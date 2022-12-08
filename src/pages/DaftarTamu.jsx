@@ -8,27 +8,38 @@ import "ag-grid-community/styles/ag-theme-alpine.css";
 import { getData } from "../utils/axios";
 import CheckBox from "../component/CheckBox";
 import ClearFilter from "../component/ClearFilter";
+import Option from "../component/Option";
+import Arriving from "../component/Arriving";
+import Spreading from "../component/Spreading";
+import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
   const [rowData, setRowData] = useState();
   const [inputField, setInputField] = useState("");
-  // const [filterText, setFilterText] = useState("");
   const [isCheckBox, setisCheckBox] = useState(false);
   const [dataFilter, setDataFilter] = useState([])
+  const navigate = useNavigate()
   const [columnDefs, setColumnDefs] = useState([
+    { field: "_id", headerName: "Opsi", cellRenderer: Option },
     { field: "name", sortable: true, headerName: "Nama" },
     { field: "address", sortable: true, headerName: "Alamat/Instansi" },
-    { field: "isArrived", sortable: true, headerName: "Status Kedatangan" },
-    { field: "isSpread", sortable: true, headerName: "Status Undangan" },
+    { field: "isArrived", sortable: true, headerName: "Status Kedatangan", cellRenderer: Arriving, cellRendererParams: {value : rowData} },
+    { field: "isSpread", sortable: true, headerName: "Status Undangan", cellRenderer: Spreading },
     { field: "date", sortable: true, headerName: "Tanggal" },
     { field: "time", sortable: true, headerName: "Waktu" },
   ]);
 
   useEffect(() => {
-    getApi()
+    const user = JSON.parse(localStorage.getItem('user'))
+    if(user){
+      getApi()
+    }else{
+      navigate('/admin')
+    }
+    
   }, []);
   
-  function getApi (value) {
+  function getApi (value)  {
     setDataFilter(value)
     getData()
     .then((res) => {
