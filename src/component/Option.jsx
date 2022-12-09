@@ -19,7 +19,6 @@ function Option(props) {
         deleteData(cellValue)
           .then((res) => {
             window.location.reload();
-            console.log(res);
           })
           .catch((err) => console.log("GAGAL", err));
         swal("Data terhapus!", {
@@ -30,7 +29,7 @@ function Option(props) {
       }
     });
 
-    // alert(`${cellValue} ID!`);
+
   };
 
   const handleUpdate = (e) => {
@@ -46,7 +45,7 @@ function Option(props) {
     localStorage.setItem('data', JSON.stringify(props.data))
     navigate('/inputtamu')
   }
-  // console.log('props =>', cellValue);
+  console.log('props =>', props.data);
   return (
     <div className="space-x-2">
       <button onClick={(e) => handleUpdate(e)} className="w-16 h-9 bg-bege text-white font-bold rounded-md shadow-black/40 shadow-md active:bg-bege/40">

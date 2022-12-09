@@ -17,7 +17,6 @@ function Spreading(props) {
                 updateSpreading(id, cellValue)
                 .then((res) => {
                   window.location.reload();
-                  console.log(res);
                 })
                 .catch((err) => console.log("GAGAL", err));
               swal("Data terubah!", {

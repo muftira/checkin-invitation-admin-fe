@@ -7,7 +7,6 @@ function NavbarClient() {
     const getSignout = (e) => {
         e.preventDefault()
         localStorage.removeItem('userClient')
-        localStorage.removeItem("user");
         navigate('/')
     }
   return (

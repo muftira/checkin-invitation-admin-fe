@@ -6,8 +6,6 @@ function Arriving(props) {
     const cellValue = props.valueFormatted ? props.valueFormatted : props.value;
     const id = props.data._id
 
-    console.log('props =>', props);
-
     const handleUpdate = (e) => {
         e.preventDefault()
         swal({
@@ -20,7 +18,6 @@ function Arriving(props) {
                 updateArriving(id, cellValue)
                 .then((res) => {
                   window.location.reload();
-                  console.log(res);
                 })
                 .catch((err) => console.log("GAGAL", err));
               swal("Data terubah!", {
@@ -31,7 +28,6 @@ function Arriving(props) {
             }
           });  
     }
-    console.log('values =>', id);
   return (
     <div className="space-x-2">
         {cellValue && cellValue === true ? <button onClick={(e) => handleUpdate(e)} className="w-16 h-9 bg-isArrived text-white font-bold rounded-md shadow-black/40 shadow-md active:bg-bege/40">

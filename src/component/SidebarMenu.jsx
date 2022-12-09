@@ -14,7 +14,6 @@ function SidebarMenu() {
     e.preventDefault();
     localStorage.removeItem("data");
     localStorage.removeItem("user");
-    localStorage.removeItem('userClient')
     navigate("/admin");
   };
 

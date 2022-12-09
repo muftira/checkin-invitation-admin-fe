@@ -42,7 +42,6 @@ function KegiatanHarian() {
           setAddress("");
           localStorage.removeItem("data");
           navigate('/dashboard')
-          console.log(res);
         })
         .catch((err) => console.log("GAGAL =>", err))
       }else{
@@ -56,7 +55,6 @@ function KegiatanHarian() {
           });
           setName("");
           setAddress("");
-          console.log(res.data);
         })
         .catch((err) => {
           console.log("GAGAL =>", err);

@@ -22,11 +22,11 @@ function Dashboard() {
   const [columnDefs, setColumnDefs] = useState([
     { field: "_id", headerName: "Opsi", cellRenderer: Option },
     { field: "name", sortable: true, headerName: "Nama" },
-    { field: "address", sortable: true, headerName: "Alamat/Instansi" },
-    { field: "isArrived", sortable: true, headerName: "Status Kedatangan", cellRenderer: Arriving, cellRendererParams: {value : rowData} },
-    { field: "isSpread", sortable: true, headerName: "Status Undangan", cellRenderer: Spreading },
-    { field: "date", sortable: true, headerName: "Tanggal" },
-    { field: "time", sortable: true, headerName: "Waktu" },
+    { field: "address", headerName: "Alamat/Instansi" },
+    { field: "isArrived", headerName: "Status Kedatangan", cellRenderer: Arriving},
+    { field: "isSpread", headerName: "Status Undangan", cellRenderer: Spreading },
+    { field: "date", headerName: "Tanggal" },
+    { field: "time", headerName: "Waktu" },
   ]);
 
   useEffect(() => {
@@ -90,11 +90,6 @@ function Dashboard() {
     return { spread, hasnotSpread };
   };
 
-  
-
-  // console.log("Ariving =>", getArriving().arrived);
-  // console.log("DATA =>", rowData);
-  // console.log("Spreading =>", getSpreading().hasnotSpread);
 
   return (
     <div className="w-[calc(100vw-240px)] bg-red  flex flex-col pr-7 mb-10">

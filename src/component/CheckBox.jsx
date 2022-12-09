@@ -23,10 +23,7 @@ function CheckBox({rowData, setRowData, isCheckBox, setisCheckBox, getApi}) {
     setRowData(JSON.parse(value))
     setisCheckBox(!isCheckBox)
   }
-
-  console.log('checkbox =>',rowData);
-
-  console.log('value =>', value);
+  
   return (
     <div className="w-[170px] h-[220px] flex flex-col justify-center items-center space-y-1 bg-bege-two rounded-lg mt-5 shadow-black/40 shadow-lg">
       <div className="text-left space-y-2">
