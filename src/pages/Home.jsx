@@ -122,7 +122,7 @@ function Home() {
           Detail Tamu
         </p>
         <div className="flex justify-center items-center space-x-4 mb-6">
-          <div className="w-[600px] h-[160px]  bg-status-one flex justify-center items-center rounded-lg shadow-black/40 shadow-lg relative">
+          <div className="w-[600px] h-[180px]  bg-status-one flex justify-center items-center rounded-lg shadow-black/40 shadow-lg relative">
             <div className="w-8 h-8 rounded-md bg-bege-two absolute left-5 top-[-20px] shadow-black/40 shadow-md text-icon flex justify-center items-center text-[20px]">
               <CgDetailsMore />
             </div>
@@ -143,14 +143,14 @@ function Home() {
                     {selectedRow.isArrived === true ? (
                       <button
                         onClick={(e) => handleUpdate(e)}
-                        className="w-16 h-9 bg-isArrived text-white font-bold rounded-md shadow-black/40 shadow-md active:bg-bege/40"
+                        className="w-16 h-9 bg-isArrived text-white font-bold rounded-md shadow-black/40 shadow-md active:bg-isArrived/40"
                       >
                         Sudah
                       </button>
                     ) : (
                       <button
                         onClick={(e) => handleUpdate(e)}
-                        className="w-16 h-9 bg-notArrived text-white font-bold rounded-md shadow-black/40 shadow-md active:bg-icon/40"
+                        className="w-16 h-9 bg-notArrived text-white font-bold rounded-md shadow-black/40 shadow-md active:bg-notArrived/40"
                       >
                         Belum
                       </button>
@@ -159,11 +159,11 @@ function Home() {
                   <p>
                     Undangan :{" "}
                     {selectedRow.isSpread === true ? (
-                      <button className="w-16 h-9 bg-isArrived text-white font-bold rounded-md shadow-black/40 shadow-md active:bg-bege/40">
+                      <button className="w-16 h-9 bg-isArrived text-white font-bold rounded-md shadow-black/40 shadow-md active:bg-isArrived/40">
                         Sudah
                       </button>
                     ) : (
-                      <button className="w-16 h-9 bg-notArrived text-white font-bold rounded-md shadow-black/40 shadow-md active:bg-icon/40">
+                      <button className="w-16 h-9 bg-notArrived text-white font-bold rounded-md shadow-black/40 shadow-md active:bg-notArrived/40">
                         Belum
                       </button>
                     )}
@@ -184,7 +184,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="w-[150px] h-[160px] text-center bg-notArrived rounded-lg relative p-4 shadow-black/40 shadow-lg">
+          <div className="w-[150px] h-[180px] text-center bg-notArrived rounded-lg relative p-4 shadow-black/40 shadow-lg">
             <div className="w-8 h-8 rounded-md bg-bege-two absolute left-5 top-[-20px] shadow-black/40 shadow-md text-icon flex justify-center items-center text-[20px]">
               <BsHourglassSplit />
             </div>
@@ -193,7 +193,7 @@ function Home() {
               {getArriving().hasnotArrived.length}
             </p>
           </div>
-          <div className="w-[150px] h-[160px] text-center bg-isArrived rounded-lg relative p-4 shadow-black/40 shadow-lg">
+          <div className="w-[150px] h-[180px] text-center bg-isArrived rounded-lg relative p-4 shadow-black/40 shadow-lg">
             <div className="w-8 h-8 rounded-md bg-bege-two absolute left-5 top-[-20px] shadow-black/40 shadow-md text-icon flex justify-center items-center text-[20px]">
               <MdVerified />
             </div>

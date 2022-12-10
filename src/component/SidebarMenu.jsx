@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { RiHomeLine } from "react-icons/ri";
 import { IoCreateOutline, IoLogOutOutline } from "react-icons/io5";
 
-function SidebarMenu() {
+function SidebarMenu({setisSidebar}) {
   const navigate = useNavigate();
   const location = useLocation();
   const page = location.pathname;
@@ -21,6 +21,8 @@ function SidebarMenu() {
     e.preventDefault()
     localStorage.removeItem("data");
     navigate("/dashboard")
+    
+    
   }
 
   return (
